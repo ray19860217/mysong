@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/play/play",
+    "pages/list/list",
+    "pages/search/search",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "微歌单",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#818181",
+    "backgroundColor": "white",
+    "selectedColor": "green",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "歌单",
+        "iconPath": "/images/music.png",
+        "selectedIconPath": "/images/music-s.png"
+      },
+      {
+        "pagePath": "pages/play/play",
+        "iconPath": "/images/playing.png",
+        "selectedIconPath": "/images/playing-s.png",
+        "text": "正在播放"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "/images/search.png",
+        "selectedIconPath": "/images/search-s.png",
+        "text": "找歌"
+      }
+    ]
+  }
+}
