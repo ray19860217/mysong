@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <view class="container">
     <view class="search-area"> 
         <input bindinput="inputing" placeholder="请输入搜索关键字" 
@@ -36,3 +37,7 @@
         正在搜索音乐...
     </loading>
 </view>
+=======
+<!--pages/search/search.wxml-->
+<text>pages/search/search.wxml</text>
+>>>>>>> 初次提交

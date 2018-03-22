@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <view class="playing container">
     <view class="thumbnail">
         <image src="{{song.albumpic_big}}" />
@@ -12,3 +13,7 @@
         </view>
     </view>
 </view>
+=======
+<!--pages/play/play.wxml-->
+<text>pages/play/play.wxml</text>
+>>>>>>> 初次提交
