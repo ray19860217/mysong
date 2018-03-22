@@ -6,6 +6,7 @@
     <view class="songlist">
         <block wx:for="{{songlist}}"  wx:key="song_id">
             <view class="songitem">
+                <!--更换跳转方式
                 <navigator url="/pages/play/play?songid={{item.songid}}" 
             class="song-play"><image src="/images/play.png" /></navigator>
                 <navigator url="/pages/play/play?songid={{item.songid}}" 
@@ -14,6 +15,15 @@
                     <view class="song-subtitle">{{item.singername}} - 
                               {{item.seconds}}</view>
                 </navigator>
+                -->
+                <view bindtap='bindtaplist' id="{{index}}"
+            class="song-play"><image src="/images/play.png" /></view>
+                <view bindtap='bindtaplist' id="{{index}}"
+                           class="song-detail">
+                    <view class="song-title">{{item.title}}</view>
+                    <view class="song-subtitle">{{item.author}}</view>
+                </view>
+
             </view>
         </block>
     </view>

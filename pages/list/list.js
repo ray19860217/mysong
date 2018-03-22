@@ -31,21 +31,29 @@ Page({
 
     //加载歌曲列表
     wx.request({
-      url: config.config.hotUrl, //热门榜单接口
-      data: { topid: topid },       //歌曲类别编号
+      //url: config.config.hotUrl, //热门榜单接口
+      url: "https://api.hibai.cn/api/index/index",
+      data: { TransCode: "020112", OpenId: "123456789", Body: { "SongListId": "141998290" } },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST' ,
+      dataType: 'json',
+      //data: { topid: topid },       //歌曲类别编号
+      
 
       success: function (e) {
-
         if (e.statusCode == 200) {
-          var songlist = e.data.showapi_res_body.pagebean.songlist;
+          var songlist = e.data.Body;
+          console.log(songlist);
           //将时长转换为分秒的表示形式
-          for (var i = 0; i < songlist.length; i++) {
-            songlist[i].seconds = formatSeconds(songlist[i].seconds);
-          }
+          //for (var i = 0; i < songlist.length; i++) {
+          //  songlist[i].seconds = formatSeconds(songlist[i].seconds);
+          //}
 
           self.setData({
             //获取第1首歌曲的图片作为该页顶部图片
-            board: e.data.showapi_res_body.pagebean.songlist[0].albumpic_big,
+            board: e.data.Body[0].pic,
             //保存歌曲列表
             songlist: songlist,
             loading: false //隐藏加载提示信息
@@ -56,5 +64,15 @@ Page({
         }
       }
     });
+  },
+
+  bindtaplist: function(e){
+    console.log(e.currentTarget.id);
+    var musicindex = parseInt(e.currentTarget.id, 10)
+    var getsongid = this.data.songlist[musicindex].url.match(/id=(\d*)/);
+    console.log(getsongid[1]);
+    wx.reLaunch({
+      url: '/pages/play/play?songid=' + getsongid[1],
+    })
   }
 })
